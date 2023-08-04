@@ -2,19 +2,13 @@ import React, { useState } from 'react';
 import useLoadTasks from '../hooks/useLoadTasks';
 import Heading from './Heading';
 import Swal from 'sweetalert2'
-import ReactDatePicker from 'react-datepicker';
 import Modal from './modal';
 
 const AllTasks = () => {
     const [tasks, isLoading, refetch] = useLoadTasks()
     console.log(tasks)
 
-    const dateline = () => {
-        const [startDate, setStartDate] = useState(new Date());
-        return (
-            <ReactDatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
-        );
-    };
+  
 
     const handleDelete = (id) => {
         console.log(id)
@@ -30,7 +24,7 @@ const AllTasks = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`https://tasks-manage-server.vercel.app/tasks/${id}`, {
+                fetch(`https://tasks-manage-server-billal-fahmid.vercel.app/tasks/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -56,7 +50,7 @@ const AllTasks = () => {
    
     const handleUpdateTask=(data ,e)=>{
         console.log(data)
-        fetch(`https://tasks-manage-server.vercel.app/task/update/${data._id}`,{
+        fetch(`https://tasks-manage-server-billal-fahmid.vercel.app/task/update/${data._id}`,{
             method:'PUT',
             headers:{
                 'content-type':'application/json'

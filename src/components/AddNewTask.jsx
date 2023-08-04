@@ -4,7 +4,6 @@ import AddFrom from './AddFrom';
 const AddNewTask = () => {
     return (
         <div>
-            
             <AddFrom></AddFrom>
         </div>
     );

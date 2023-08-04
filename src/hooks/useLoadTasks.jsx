@@ -7,7 +7,7 @@ const useLoadTasks=()=>{
     const { isLoading, data: tasks=[], refetch } = useQuery({
         queryKey: ['tasks'],
         queryFn: async()=>{
-            const response = await fetch('https://tasks-manage-server.vercel.app/all-tasks')
+            const response = await fetch('https://tasks-manage-server-billal-fahmid.vercel.app/all-tasks')
             return response.json()
         },
       })

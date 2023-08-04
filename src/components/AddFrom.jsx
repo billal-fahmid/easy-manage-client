@@ -17,7 +17,7 @@ const AddFrom = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = (data, e) => {
         console.log(data)
-        fetch(`https://tasks-manage-server.vercel.app/tasks`, {
+        fetch(`https://tasks-manage-server-billal-fahmid.vercel.app/tasks`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
