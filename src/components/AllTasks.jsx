@@ -30,7 +30,7 @@ const AllTasks = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/tasks/${id}`, {
+                fetch(`https://tasks-manage-server.vercel.app/tasks/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -56,7 +56,7 @@ const AllTasks = () => {
    
     const handleUpdateTask=(data ,e)=>{
         console.log(data)
-        fetch(`http://localhost:5000/task/update/${data._id}`,{
+        fetch(`https://tasks-manage-server.vercel.app/task/update/${data._id}`,{
             method:'PUT',
             headers:{
                 'content-type':'application/json'
@@ -69,6 +69,13 @@ const AllTasks = () => {
             if(data.matchedCount>0){
                 refetch()
                 setModalData(null)
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Your Update has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
             }
         })
     }
@@ -76,8 +83,8 @@ const AllTasks = () => {
     return (
         <div>
             <Heading heading={'All Tasks'} subHeading={'Manage Your To-Do List'}></Heading>
-            <div className="overflow-x-auto">
-                <table className="table table-xs">
+            <div className="overflow-x-auto ">
+                <table className="table table-xs ">
                     <thead>
                         <tr>
                             <th>#</th>

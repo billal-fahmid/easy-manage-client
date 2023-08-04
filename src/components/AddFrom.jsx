@@ -17,7 +17,7 @@ const AddFrom = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = (data, e) => {
         console.log(data)
-        fetch(`http://localhost:5000/tasks`, {
+        fetch(`https://tasks-manage-server.vercel.app/tasks`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -40,7 +40,7 @@ const AddFrom = () => {
             <div className=" min-h-screen bg-base-200">
                 <ToastContainer />
                 <Heading heading={'Add Tasks'} subHeading={'Manage Your To-Do List'}></Heading>
-                <div className="hero-content w-full mt-0 ">
+                <div className=" p-0 md:p-4 flex justify-center gap-1 w-full mt-0 ">
 
                     <div className="card  w-full  shadow-2xl bg-base-100">
                         <form onSubmit={handleSubmit(onSubmit)} className="w-full card-body">
